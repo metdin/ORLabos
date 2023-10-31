@@ -1,4 +1,4 @@
-[{
+{
 	"_id": 1,
 	"ImeKluba": "RK Viro-Virovitica",
 	"Sport": "Rukomet",
@@ -40,7 +40,7 @@
 			"Prezime": "Vašarević"
 		}
 	]
-},
+}
 {
 	"_id": 2,
 	"ImeKluba": "KK Virka",
@@ -83,7 +83,7 @@
 			"Prezime": "Karlović"
 		}
 	]
-},
+}
 {
 	"_id": "3",
 	"ImeKluba": "NK Virovitica",
@@ -126,7 +126,7 @@
 			"Prezime": "Kraus"
 		}
 	]
-},
+}
 {
 	"_id": 4,
 	"ImeKluba": "RK Zagreb",
@@ -173,7 +173,7 @@
 			"Prezime": "Čupić"
 		}
 	]
-},
+}
 {
 	"_id": 5,
 	"ImeKluba": "GNK Dinamo Zagreb",
@@ -236,7 +236,7 @@
 			"Prezime": "Mišić"
 		}
 	]
-},
+}
 {
 	"_id": 6,
 	"ImeKluba": "NK Rudeš",
@@ -299,7 +299,7 @@
 			"Prezime": "Špeljak"
 		}
 	]
-},
+}
 {
 	"_id": 7,
 	"ImeKluba": "KK Cibona",
@@ -362,7 +362,7 @@
 			"Prezime": "Bandov"
 		}
 	]
-},
+}
 {
 	"_id": 8,
 	"ImeKluba": "KK Dinamo Zagreb",
@@ -425,7 +425,7 @@
 			"Prezime": "Brzoja"
 		}
 	]
-},
+}
 {
 	"_id": 9,
 	"ImeKluba": "NK Osijek",
@@ -488,7 +488,7 @@
 			"Prezime": "Pušić"
 		}
 	]
-},
+}
 {
 	"_id": 10,
 	"ImeKluba": "RK Nexe",
@@ -551,4 +551,4 @@
 			"Prezime": "Tomić"
 		}
 	]
-}]
+}
