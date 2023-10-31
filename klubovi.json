@@ -1,0 +1,554 @@
+[{
+	"_id": 1,
+	"ImeKluba": "RK Viro-Virovitica",
+	"Sport": "Rukomet",
+	"Mjesto": "Virovitica",
+	"Liga": "2. HRL Istok",
+	"RangNatjecanja": 3,
+	"GodinaOsnutka": 1949,
+	"Predsjednik": {
+		"Ime": "Zlarin",
+		"Prezime": "Rončević"
+	},
+	"Kontakt": {
+		"Email": "rkviro@rk-viro-virovitica.com",
+		"Telefon": "033721721"
+	},
+	"Igrači": [
+		{
+			"Ime": "Karlo",
+			"Prezime": "Štimac"
+		},
+		{
+			"Ime": "Toni",
+			"Prezime": "Smutni"
+		},
+		{
+			"Ime": "Deni",
+			"Prezime": "Vilček"
+		},
+		{
+			"Ime": "Matej",
+			"Prezime": "Oršulić"
+		},
+		{
+			"Ime": "Leon",
+			"Prezime": "Dujmović"
+		},
+		{
+			"Ime": "Hrvoje",
+			"Prezime": "Vašarević"
+		}
+	]
+},
+{
+	"_id": 2,
+	"ImeKluba": "KK Virka",
+	"Sport": "Košarka",
+	"Mjesto": "Virovitica",
+	"Liga": "2. ML Sjever",
+	"RangNatjecanja": 3,
+	"GodinaOsnutka": 2019,
+	"Predsjednik": {
+		"Ime": "Zvonimir",
+		"Prezime": "Petrović"
+	},
+	"Kontakt": {
+		"Email": "kkvirka@kk-virka-virovitica.com",
+		"Telefon": "033722722"
+	},
+	"Igrači": [
+		{
+			"Ime": "Tomislav",
+			"Prezime": "Lulić"
+		},
+		{
+			"Ime": "Miroslav",
+			"Prezime": "Lalić"
+		},
+		{
+			"Ime": "Domagoj",
+			"Prezime": "Cah"
+		},
+		{
+			"Ime": "Miljenko",
+			"Prezime": "Benčić"
+		},
+		{
+			"Ime": "Marko",
+			"Prezime": "Marković"
+		},
+		{
+			"Ime": "Vladimir",
+			"Prezime": "Karlović"
+		}
+	]
+},
+{
+	"_id": "3",
+	"ImeKluba": "NK Virovitica",
+	"Sport": "Nogomet",
+	"Mjesto": "Virovitica",
+	"Liga": "3. HNL Sjever",
+	"RangNatjecanja": 3,
+	"GodinaOsnutka": 1908,
+	"Predsjednik": {
+		"Ime": "Damir",
+		"Prezime": "Pervan"
+	},
+	"Kontakt": {
+		"Email": "nogometni.klub.virovitica@vt.t-com.hr",
+		"Telefon": "033723723"
+	},
+	"Igrači": [
+		{
+			"Ime": "Filip",
+			"Prezime": "Šimić"
+		},
+		{
+			"Ime": "Mihael",
+			"Prezime": "Zdenić"
+		},
+		{
+			"Ime": "Luka",
+			"Prezime": "Novosel"
+		},
+		{
+			"Ime": "Mladen",
+			"Prezime": "Šplajt"
+		},
+		{
+			"Ime": "Goran",
+			"Prezime": "Karlović"
+		},
+		{
+			"Ime": "Teodor",
+			"Prezime": "Kraus"
+		}
+	]
+},
+{
+	"_id": 4,
+	"ImeKluba": "RK Zagreb",
+	"Sport": "Rukomet",
+	"Mjesto": "Zagreb",
+	"Liga": "Paket24 Premijer liga",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1922,
+	"Predsjednik": {
+		"Ime": "Vedran",
+		"Prezime": "Šupuković"
+	},
+	"Kontakt": {
+		"Email": "info@rk-zagreb.hr",
+		"Telefon": "015559695"
+	},
+	"Igrači": [
+		{
+			"Ime": "Matej",
+			"Prezime": "Mandić"
+		},
+		{
+			"Ime": "Aljaž",
+			"Prezime": "Panjtar"
+		},
+		{
+			"Ime": "Jakov",
+			"Prezime": "Gojun"
+		},
+		{
+			"Ime": "Timur",
+			"Prezime": "Dibirov"
+		},
+		{
+			"Ime": "Davor",
+			"Prezime": "Ćavar"
+		},
+		{
+			"Ime": "Filip",
+			"Prezime": "Glavaš"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Čupić"
+		}
+	]
+},
+{
+	"_id": 5,
+	"ImeKluba": "GNK Dinamo Zagreb",
+	"Sport": "Nogomet",
+	"Mjesto": "Zagreb",
+	"Liga": "SuperSport HNL",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1945,
+	"Predsjednik": {
+		"Ime": "Mirko",
+		"Prezime": "Barišić"
+	},
+	"Kontakt": {
+		"Email": "dinamo@gnkdinamo.hr",
+		"Telefon": "012386111"
+	},
+	"Igrači": [
+		{
+			"Ime": "Ivan",
+			"Prezime": "Nevistić"
+		},
+		{
+			"Ime": "Antonio",
+			"Prezime": "Rajić"
+		},
+		{
+			"Ime": "Dino",
+			"Prezime": "Perić"
+		},
+		{
+			"Ime": "Boško",
+			"Prezime": "Šutalo"
+		},
+		{
+			"Ime": "Arijan",
+			"Prezime": "Ademi"
+		},
+		{
+			"Ime": "Robert",
+			"Prezime": "Ljubičić"
+		},
+		{
+			"Ime": "Martin",
+			"Prezime": "Baturina"
+		},
+		{
+			"Ime": "Bruno",
+			"Prezime": "Petković"
+		},
+		{
+			"Ime": "Luka",
+			"Prezime": "Menalo"
+		},
+		{
+			"Ime": "Dario",
+			"Prezime": "Špikić"
+		},
+		{
+			"Ime": "Josip",
+			"Prezime": "Mišić"
+		}
+	]
+},
+{
+	"_id": 6,
+	"ImeKluba": "NK Rudeš",
+	"Sport": "Nogomet",
+	"Mjesto": "Zagreb",
+	"Liga": "SuperSport HNL",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1957,
+	"Predsjednik": {
+		"Ime": "Josip",
+		"Prezime": "Šimunić"
+	},
+	"Kontakt": {
+		"Email": "info@nk-rudes.hr",
+		"Telefon": "013860844"
+	},
+	"Igrači": [
+		{
+			"Ime": "Matej",
+			"Prezime": "Marković"
+		},
+		{
+			"Ime": "Mario",
+			"Prezime": "Marić"
+		},
+		{
+			"Ime": "Jakov",
+			"Prezime": "Bašić"
+		},
+		{
+			"Ime": "Camara",
+			"Prezime": "Aboubacar"
+		},
+		{
+			"Ime": "Luka",
+			"Prezime": "Pasariček"
+		},
+		{
+			"Ime": "Tomislav",
+			"Prezime": "Srbljinović"
+		},
+		{
+			"Ime": "Krešimir",
+			"Prezime": "Kovačević"
+		},
+		{
+			"Ime": "Brian",
+			"Prezime": "Oddei"
+		},
+		{
+			"Ime": "Vinko",
+			"Prezime": "Petković"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Pešić"
+		},
+		{
+			"Ime": "Karlo",
+			"Prezime": "Špeljak"
+		}
+	]
+},
+{
+	"_id": 7,
+	"ImeKluba": "KK Cibona",
+	"Sport": "Košarka",
+	"Mjesto": "Zagreb",
+	"Liga": "FAVBET Premijer liga",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1946,
+	"Predsjednik": {
+		"Ime": "Mario",
+		"Prezime": "Petrović"
+	},
+	"Kontakt": {
+		"Email": "club@cibona.com",
+		"Telefon": "014843016"
+	},
+	"Igrači": [
+		{
+			"Ime": "Domagoj",
+			"Prezime": "Vuković"
+		},
+		{
+			"Ime": "Krešimir",
+			"Prezime": "Radovčić"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Perasović"
+		},
+		{
+			"Ime": "Jakov",
+			"Prezime": "Mustapić"
+		},
+		{
+			"Ime": "Domagoj",
+			"Prezime": "Proleta"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Majcunić"
+		},
+		{
+			"Ime": "Juraj",
+			"Prezime": "Golemac"
+		},
+		{
+			"Ime": "Josip",
+			"Prezime": "Pavković"
+		},
+		{
+			"Ime": "Aleksandar",
+			"Prezime": "Aranitović"
+		},
+		{
+			"Ime": "Filip",
+			"Prezime": "Ferderber"
+		},
+		{
+			"Ime": "Niko",
+			"Prezime": "Bandov"
+		}
+	]
+},
+{
+	"_id": 8,
+	"ImeKluba": "KK Dinamo Zagreb",
+	"Sport": "Košarka",
+	"Mjesto": "Zagreb",
+	"Liga": "FAVBET Premijer liga",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1972,
+	"Predsjednik": {
+		"Ime": "Marijan",
+		"Prezime": "Pojatina"
+	},
+	"Kontakt": {
+		"Email": "info@kkdinamo.hr",
+		"Telefon": "0916036574"
+	},
+	"Igrači": [
+		{
+			"Ime": "Karlo",
+			"Prezime": "Mikšić"
+		},
+		{
+			"Ime": "Luka",
+			"Prezime": "Vargek"
+		},
+		{
+			"Ime": "Hrvoje",
+			"Prezime": "Garafolić"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Vrgoč"
+		},
+		{
+			"Ime": "Filip",
+			"Prezime": "Kraljević"
+		},
+		{
+			"Ime": "Matija",
+			"Prezime": "Pavlic"
+		},
+		{
+			"Ime": "Roko",
+			"Prezime": "Lukić"
+		},
+		{
+			"Ime": "Marin",
+			"Prezime": "Vručinić"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Novačić"
+		},
+		{
+			"Ime": "Stipe",
+			"Prezime": "Dugandžić"
+		},
+		{
+			"Ime": "Mislav",
+			"Prezime": "Brzoja"
+		}
+	]
+},
+{
+	"_id": 9,
+	"ImeKluba": "NK Osijek",
+	"Sport": "Nogomet",
+	"Mjesto": "Osijek",
+	"Liga": "SuperSport HNL",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1947,
+	"Predsjednik": {
+		"Ime": "Ferenc",
+		"Prezime": "Sakalj"
+	},
+	"Kontakt": {
+		"Email": "nk.osijek@nk-osijek.hr",
+		"Telefon": "031570300"
+	},
+	"Igrači": [
+		{
+			"Ime": "Marko",
+			"Prezime": "Barešić"
+		},
+		{
+			"Ime": "Marko",
+			"Prezime": "Malenica"
+		},
+		{
+			"Ime": "Slavko",
+			"Prezime": "Bralić"
+		},
+		{
+			"Ime": "Marin",
+			"Prezime": "Prekodravac"
+		},
+		{
+			"Ime": "Domagoj",
+			"Prezime": "Bukvić"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Fiolić"
+		},
+		{
+			"Ime": "Vedran",
+			"Prezime": "Jugović"
+		},
+		{
+			"Ime": "Kristijan",
+			"Prezime": "Lovrić"
+		},
+		{
+			"Ime": "Kristian",
+			"Prezime": "Fućak"
+		},
+		{
+			"Ime": "Darko",
+			"Prezime": "Nejašmić"
+		},
+		{
+			"Ime": "Petar",
+			"Prezime": "Pušić"
+		}
+	]
+},
+{
+	"_id": 10,
+	"ImeKluba": "RK Nexe",
+	"Sport": "Rukomet",
+	"Mjesto": "Našice",
+	"Liga": "Paket24 Premijer liga",
+	"RangNatjecanja": 1,
+	"GodinaOsnutka": 1959,
+	"Predsjednik": {
+		"Ime": "Josip",
+		"Prezime": "Ergović"
+	},
+	"Kontakt": {
+		"Email": "franjo.lelic@rknexe.hr",
+		"Telefon": "098624437"
+	},
+	"Igrači": [
+		{
+			"Ime": "Moreno",
+			"Prezime": "Car"
+		},
+		{
+			"Ime": "Mihailo",
+			"Prezime": "Radovanović"
+		},
+		{
+			"Ime": "Dominik",
+			"Prezime": "Kuzmanović"
+		},
+		{
+			"Ime": "Fahrudin",
+			"Prezime": "Melić"
+		},
+		{
+			"Ime": "Manuel",
+			"Prezime": "Štrlek"
+		},
+		{
+			"Ime": "Ivan",
+			"Prezime": "Sršen"
+		},
+		{
+			"Ime": "Adir",
+			"Prezime": "Cohen"
+		},
+		{
+			"Ime": "Luka",
+			"Prezime": "Moslavac"
+		},
+		{
+			"Ime": "Marko",
+			"Prezime": "Bezjak"
+		},
+		{
+			"Ime": "Lovro",
+			"Prezime": "Jotić"
+		},
+		{
+			"Ime": "Mario",
+			"Prezime": "Tomić"
+		}
+	]
+}]
