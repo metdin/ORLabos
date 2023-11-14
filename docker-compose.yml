@@ -8,6 +8,32 @@ services:
     volumes:
       - ./data:/data/db
     environment:
+      MONGODB_HOST: mongodb
       MONGO_INITDB_ROOT_USERNAME: ""
       MONGO_INITDB_ROOT_PASSWORD: ""
+    networks:
+      - my_network
     command: --noauth
+  app:
+    image: metdino/kluboviapp
+    container_name: mojaAppSpremnik
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/data/db
+    networks:
+      - my_network
+    depends_on:
+      - mongodb
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  my_shared_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data

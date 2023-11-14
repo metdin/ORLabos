@@ -1,0 +1,156 @@
+<!-- datatable.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sportski klubovi</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <form id="filter-form">
+    <input type="text" id="pretraga" name="query" placeholder="Unesite tekst za pretragu...">
+    <select id="atribut" name="attribute">
+        <option value="">Svi atributi</option>
+        <option value="ImeKluba">Ime kluba</option>
+        <option value="Sport">Sport</option>
+        <option value="Mjesto">Mjesto</option>
+        <option value="Liga">Liga</option>
+        <option value="RangNatjecanja">Rang</option>
+        <option value="GodinaOsnutka">Godina osnutka</option>
+        <option value="Predsjednik.Ime">Predsjednik (Ime)</option>
+        <option value="Predsjednik.Prezime">Predsjednik (Prezime)</option>
+        <option value="Kontakt.Email">Email</option>
+        <option value="Kontakt.Telefon">Telefon</option>
+        <option value="Igrač">Igrač</option>
+
+
+    </select>
+    <button type="submit" class="button-link" id="gumb">Pretraži</button>
+    </form>
+
+     <div class="button-container">
+        <div class="button-row">
+            <a href="/export_csv" class="button-link button-link-green">Preuzmi CSV</a>
+            <span class="button-separator"></span>
+            <a href="/export_json" class="button-link button-link-yellow">Preuzmi JSON</a>
+        </div>
+    </div>
+
+    <div>
+        <table id="tablica" class="display">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Ime kluba</th>
+                    <th>Sport</th>
+                    <th>Mjesto</th>
+                    <th>Liga</th>
+                    <th>Rang</th>
+                    <th>Godina osnutka</th>
+                    <th>Predsjednik</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Igrač</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+        // Fetch the data
+        $.ajax({
+            url: "/data",
+            type: "GET",
+            success: function (data) {
+                // Flatten the data and create a new array of objects for each player
+                var flattenedData = [];
+                data.forEach(function (club) {
+                    club.Igrači.forEach(function (player) {
+                        var newRow = {
+                            "_id": club._id,
+                            "ImeKluba": club.ImeKluba,
+                            "Sport": club.Sport,
+                            "Mjesto": club.Mjesto,
+                            "Liga": club.Liga,
+                            "RangNatjecanja": club.RangNatjecanja,
+                            "GodinaOsnutka": club.GodinaOsnutka,
+                            "Predsjednik": club.Predsjednik.Ime + " " + club.Predsjednik.Prezime,
+                            "KontaktEmail": club.Kontakt.Email,
+                            "KontaktTelefon": club.Kontakt.Telefon,
+                            "Igrač": player.Ime + " " + player.Prezime
+                        };
+                        flattenedData.push(newRow);
+                    });
+                });
+
+                $('#filter-form').submit(function (e) {
+                    e.preventDefault();
+                    var query = $('#pretraga').val();
+                    var attribute = $('#atribut').val();
+
+                    // Make an AJAX request to the filtering route
+                    $.ajax({
+                        type: "POST",
+                        url: "/filter_data",
+                        data: { query: query, attribute: attribute },
+                        success: function (filteredData) {
+                            console.log(filteredData);
+                            var table = $('#tablica').DataTable();
+                            table.clear().draw();
+                            var flattenedData = [];
+                            filteredData.forEach(function (club) {
+                                club.Igrači.forEach(function (player) {
+                                    var newRow = {
+                                        "_id": club._id,
+                                        "ImeKluba": club.ImeKluba,
+                                        "Sport": club.Sport,
+                                        "Mjesto": club.Mjesto,
+                                        "Liga": club.Liga,
+                                        "RangNatjecanja": club.RangNatjecanja,
+                                        "GodinaOsnutka": club.GodinaOsnutka,
+                                        "Predsjednik": club.Predsjednik.Ime + " " + club.Predsjednik.Prezime,
+                                        "KontaktEmail": club.Kontakt.Email,
+                                        "KontaktTelefon": club.Kontakt.Telefon,
+                                        "Igrač": player.Ime + " " + player.Prezime
+                                    };
+                                    flattenedData.push(newRow);
+                                });
+                            });
+                            table.rows.add(flattenedData).draw();
+                        },
+                        error: function (error) {
+                            console.error(error);
+                        }
+                    });
+                });
+
+                // Initialize DataTable with the flattened data
+                $('#tablica').DataTable({
+                    data: flattenedData,
+                    columns: [
+                        { "data": "_id"},
+                        { "data": "ImeKluba"},
+                        { "data": "Sport"},
+                        { "data": "Mjesto"},
+                        { "data": "Liga" },
+                        { "data": "RangNatjecanja" },
+                        { "data": "GodinaOsnutka" },
+                        { "data": "Predsjednik" },
+                        { "data": "KontaktEmail" },
+                        { "data": "KontaktTelefon" },
+                        { "data": "Igrač" }
+                    ]
+                });
+            }
+        });
+    });
+
+
+    </script>
+</body>
+</html>

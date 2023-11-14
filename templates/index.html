@@ -2,88 +2,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Webpage with MongoDB Data</title>
+    <title>Sportski klubovi</title>
+    <meta name="title" content="Sportski Klubovi">
+    <meta name="author" content="Dino Meter">
+    <meta name="description" content="Baza podataka sportskih klubova">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <body>
-    <h1>MongoDB Data</h1>
-    <a href="/download_csv">Download CSV</a>
-    <a href="/download_json">Download JSON</a>
-
-    <div>
-        <table id="data-table" class="display">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Ime kluba</th>
-                    <th>Sport</th>
-                    <th>Mjesto</th>
-                    <th>Liga</th>
-                    <th>Rang</th>
-                    <th>Godina osnutka</th>
-                    <th>Predsjednik</th>
-                    <th>Email</th>
-                    <th>Telefon</th>
-                    <th>Igrač</th>
-
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <div class="button-container">
+        <h1 class="white-text">SPORTSKI KLUBOVI</h1>
+        <div class="button-row">
+            <a href="/download_csv" class="button-link button-link-green">Preuzmi CSV</a>
+            <span class="button-separator"></span>
+            <a href="/download_json" class="button-link button-link-yellow">Preuzmi JSON</a>
+        </div>
+        <div class="button-row">
+            <a href="/datatable" class="button-link">Prikaz podataka</a>
+        </div>
     </div>
 
-    <script>
-    $(document).ready(function () {
-        // Fetch the data
-        $.ajax({
-            url: "/data",
-            type: "GET",
-            success: function (data) {
-                // Flatten the data and create a new array of objects for each player
-                var flattenedData = [];
-                data.forEach(function (club) {
-                    club.Igrači.forEach(function (player) {
-                        var newRow = {
-                            "_id": club._id,
-                            "ImeKluba": club.ImeKluba,
-                            "Sport": club.Sport,
-                            "Mjesto": club.Mjesto,
-                            "Liga": club.Liga,
-                            "RangNatjecanja": club.RangNatjecanja,
-                            "GodinaOsnutka": club.GodinaOsnutka,
-                            "Predsjednik": club.Predsjednik.Ime + " " + club.Predsjednik.Prezime,
-                            "KontaktEmail": club.Kontakt.Email,
-                            "KontaktTelefon": club.Kontakt.Telefon,
-                            "PlayerName": player.Ime + " " + player.Prezime
-                        };
-                        flattenedData.push(newRow);
-                    });
-                });
 
-                // Initialize DataTable with the flattened data
-                $('#data-table').DataTable({
-                    data: flattenedData,
-                    columns: [
-                        { "data": "_id"},
-                        { "data": "ImeKluba"},
-                        { "data": "Sport"},
-                        { "data": "Mjesto"},
-                        { "data": "Liga" },
-                        { "data": "RangNatjecanja" },
-                        { "data": "GodinaOsnutka" },
-                        { "data": "Predsjednik" },
-                        { "data": "KontaktEmail" },
-                        { "data": "KontaktTelefon" },
-                        { "data": "PlayerName" }
-                    ]
-                });
-            }
-        });
-    });
-    </script>
+
 
 </body>
+
+<footer>
+        <p class="attribution">Image by redgreystock on Freepik</p>
+</footer>
 </html>
