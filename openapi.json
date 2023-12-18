@@ -1,0 +1,388 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Klubovi API",
+    "description": "API za pristup informacijama o sportskim klubovima",
+    "contact": {
+      "name": "Dino Meter",
+      "url": "https://github.com/metdin"
+    },
+    "license": {
+      "name": "CC0 1.0 Universal",
+      "url": "https://github.com/metdin/ORLabos/blob/main/LICENSE"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/klubovi": {
+      "get": {
+        "summary": "Dohvaća sve klubove iz baze podataka",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima u obliku JSON-a",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched all data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Dodavanje novog zapisa u kolekciju klubova",
+        "responses": {
+          "201": {
+            "description": "Uspijeh o vraćenim podacima u obliku JSON-a",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Inserted data",
+                  "response": {
+                    "data": "data[-1]"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/klubovi/<int:data_id>": {
+      "get": {
+        "summary": "Dohvaća podatke o klubu pomoću ID parameta u URL-u",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima o klubu",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Podaci s zadanim ID-jem ne postoje",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Not found",
+                  "message": "Data with ID {data_id} doesn't exist",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Ažurira podatke o klubu pomoću ID parameta u URL-u",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o ažuriranim podacima o klubu",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Updated data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Podaci s zadanim ID-jem ne postoje",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Data with ID {data_id} doesn't exist",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Briše podatke o klubu pomoću ID parameta u URL-u",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o obrisnaim podacima o klubu",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Deleted data with ID {data_id}",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Podaci s zadanim ID-jem ne postoje",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Data with ID {data_id} doesn't exist",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/gradovi": {
+      "get": {
+        "summary": "Dohvaća sve gradove iz baze podataka",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima u obliku JSON-a",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/gradovi/<string:grad>": {
+      "get": {
+        "summary": "Dohvaća podatke o klubovima pomoću grad parameta u URL-u",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima o klubu",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Podaci s zadanim gradom ne postoje",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Not found",
+                  "message": "Data with grad {grad} doesn't exist",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sportovi": {
+      "get": {
+        "summary": "Dohvaća sve sportove iz baze podataka",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima u obliku JSON-a",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sportovi/<string:sport>": {
+      "get": {
+        "summary": "Dohvaća podatke o klubovima pomoću sport parameta u URL-u",
+        "responses": {
+          "200": {
+            "description": "Uspijeh o vraćenim podacima o klubu",
+            "content": {
+              "application/json": {
+                "example": {
+                  "Status": "OK",
+                  "message": "Fetched data",
+                  "response": {
+                    "data": "data"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Podaci s zadanim sportom ne postoje",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Not found",
+                  "message": "Data with sport {sport} doesn't exist",
+                  "response": "null"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "Internal server error",
+                  "message": "Unable to retrieve data from database",
+                  "response": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/specification": {
+      "get": {
+        "summary": "Dohvaća OpenAPI specifikaciju u JSON response-u",
+        "responses": {
+          "200": {
+            "description": "Uspješno dohvaćeni podaci",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "OK",
+                  "message": "OpenApi specification fetched",
+                  "response": {
+                    "specification": "openApi.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
