@@ -3,7 +3,6 @@ from pymongo import MongoClient
 import json
 import csv
 
-
 app = Flask(__name__)
 
 #MongoDB connection settings
