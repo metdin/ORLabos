@@ -12,19 +12,36 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <body>
-    <div class="button-container">
-        <h1 class="white-text">SPORTSKI KLUBOVI</h1>
-        <div class="button-row">
-            <a href="/download_csv" class="button-link button-link-green">Preuzmi CSV</a>
-            <span class="button-separator"></span>
-            <a href="/download_json" class="button-link button-link-yellow">Preuzmi JSON</a>
+    {% if session %}
+        <h1>Welcome {{session.userinfo.name}}!</h1>
+        <div class="button-container">
+            <h1 class="white-text">SPORTSKI KLUBOVI</h1>
+            <div class="button-row">
+                <a href="/download_csv" class="button-link button-link-green">Preuzmi CSV</a>
+                <span class="button-separator"></span>
+                <a href="/download_json" class="button-link button-link-yellow">Preuzmi JSON</a>
+            </div>
+            <div class="button-row">
+                <a href="/datatable" class="button-link">Prikaz podataka</a>
+            </div>
+            <div class="button-row">
+                <a href="/osvjezi_preslike" class="button-link">Osjveži preslike</a>
+                <span class="button-separator"></span>
+                <a href="profil" class="button-link">Korisnički profil</a>
+            </div>
         </div>
         <div class="button-row">
-            <a href="/datatable" class="button-link">Prikaz podataka</a>
+            <a href="/logout" class="button-link">Odjava</a>
         </div>
-    </div>
+        
 
-
+    {% else %}
+        <h1>Welcome Guest</h1>
+        <div class="button-row"></div>
+            <p><a href="/login" class="button-link">Prijava</a></p>
+        </div>
+    {% endif %}
+    
 
 
 </body>

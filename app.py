@@ -1,19 +1,71 @@
-from flask import Flask, render_template, send_file, jsonify, request, Response
+from flask import Flask, render_template, send_file, jsonify, request, Response, redirect, session, url_for
 from pymongo import MongoClient
 import json
 import csv
+import subprocess
+from os import environ as env
+from urllib.parse import quote_plus, urlencode
+from authlib.integrations.flask_client import OAuth
+from dotenv import find_dotenv, load_dotenv
+
+
+
+ENV_FILE = find_dotenv()
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
 
 app = Flask(__name__)
+app.secret_key = env.get("APP_SECRET_KEY")
+
+oauth = OAuth(app)
+
+oauth.register(
+    "auth0",
+    client_id=env.get("AUTH0_CLIENT_ID"),
+    client_secret=env.get("AUTH0_CLIENT_SECRET"),
+    client_kwargs={
+        "scope": "openid profile email",
+    },
+    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
+)
 
 #MongoDB connection settings
-MONGO_URI = "mongodb://mojaBazaSpremnik:27017/"
+MONGO_URI = "mongodb://localhost:27017/"
 DATABASE_NAME = "sportski_klubovi"
 COLLECTION_NAME = "klubovi"
 filtered_data =[]
 
+@app.route("/login")
+def login():
+    return oauth.auth0.authorize_redirect(
+        redirect_uri=url_for("callback", _external=True)
+    )
+
+@app.route("/callback")
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
+    return redirect("/")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "http://" + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("index", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html", session=session.get('user'))
+
 
 @app.route('/datatable')
 def datatable():
@@ -21,13 +73,85 @@ def datatable():
 
 @app.route('/download_csv')
 def download_csv():
-    csv_filename = "klubovi.csv"
+    csv_filename = "novi_klubovi.csv"
     return send_file(csv_filename, as_attachment=True)
 
 @app.route('/download_json')
 def download_json():
-    json_filename = "klubovi.json"
+    json_filename = "novi_klubovi.json"
     return send_file(json_filename, as_attachment=True)
+
+@app.route('/profil')
+def profil():
+    if 'user' in session:
+        # Retrieve Auth0 user profile information from the session
+        user_profile = session['user']['userinfo']
+        return jsonify(user_profile)
+
+@app.route('/osvjezi_preslike')
+def osvjezi_preslike():
+    try:
+        mongoexport_cmd = [
+            'mongoexport',
+            '--uri', MONGO_URI,
+            '--db', DATABASE_NAME,
+            '--collection', COLLECTION_NAME,
+            '--out', "novi_klubovi.json",
+            '--pretty'
+        ]
+        mongoexport_cmd_csv = [
+            'mongoexport',
+            '--uri', MONGO_URI,
+            '--db', DATABASE_NAME,
+            '--collection', COLLECTION_NAME,
+            '--out', "pom.json",
+        ]
+        subprocess.run(mongoexport_cmd, check=True)
+        subprocess.run(mongoexport_cmd_csv, check=True)
+        result_message = "Mongoexport completed successfully."
+
+        # Load the original JSON data
+        with open('pom.json', 'r', encoding='utf-8') as json_file:
+            data = [json.loads(line) for line in json_file]
+
+        # Create an array with a comma delimiter
+        with open('pom.json', 'w', encoding='utf-8') as json_file:
+            json.dump(data, json_file, indent=4)
+
+        with open('pom.json', 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+
+        # Create a CSV file and write the data with UTF-8 encoding
+        with open('novi_klubovi.csv', 'w', newline='', encoding='utf-8') as csv_file:
+            csv_writer = csv.writer(csv_file)
+
+            # Write the header
+            csv_writer.writerow(['ImeKluba', 'Sport', 'Mjesto', 'Liga', 'RangNatjecanja', 'GodinaOsnutka', 'Predsjednik.Ime', 'Predsjednik.Prezime', 'Kontakt_Email', 'Kontakt_Telefon', 'Igrač.Ime', 'Igrač.Prezime'])
+
+            # Iterate through each document and write data to CSV
+            for document in data:
+                players = document.get('Igrači', [])
+                for player in players:
+                    csv_writer.writerow([
+                        document.get('ImeKluba', ''),
+                        document.get('Sport', ''),
+                        document.get('Mjesto', ''),
+                        document.get('Liga', ''),
+                        document.get('RangNatjecanja', ''),
+                        document.get('GodinaOsnutka', ''),
+                        document.get('Predsjednik', {}).get('Ime', ''),
+                        document.get('Predsjednik', {}).get('Prezime', ''),
+                        document.get('Kontakt', {}).get('Email', ''),
+                        document.get('Kontakt', {}).get('Telefon', ''),
+                        player.get('Ime', ''),
+                        player.get('Prezime', '')
+            ])
+        print(f"Executing mongoexport command: {' '.join(mongoexport_cmd)}")
+    except subprocess.CalledProcessError as e:
+        result_message = f"Error running mongoexport: {e}"
+
+    return redirect("/")
+    
 
 @app.route('/data', methods=['GET'])
 def get_data():
@@ -154,7 +278,7 @@ def api_get_data():
                 igrac = i.split()
                 pomIgraci.append({"Ime" : igrac[0], "Prezime" : igrac [1]})
             newIgraci = pomIgraci
-            newId = len(data) + 1
+            newId = len(data) + 10
             #print(newIgraci, newKontakt, newPredsjednik, newRang, newId)
             if (collection.insert_one(
                 {
@@ -368,5 +492,5 @@ def api_specification():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 

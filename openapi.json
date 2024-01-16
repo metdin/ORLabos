@@ -47,6 +47,27 @@
         }
       },
       "post": {
+        "requestBody": {
+          "description": "Dodaj klub u bazu podataka",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            }
+          },
+          "required": true
+        },
         "summary": "Dodavanje novog zapisa u kolekciju klubova",
         "responses": {
           "201": {
@@ -381,6 +402,103 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Klub": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "_id",
+            "ImeKluba",
+            "Sport",
+            "Mjesto",
+            "Liga",
+            "RangNatjecanja",
+            "GodinaOsnutka",
+            "Predsjednik",
+            "Kontakt",
+            "Igrači"
+        ],
+        "properties": {
+            "_id": {
+                "type": "integer",
+                "title": "The _id Schema",
+                
+            },
+            "ImeKluba": {
+                "type": "string",
+                "title": "The ImeKluba Schema",
+                
+            },
+            "Sport": {
+                "type": "string",
+                "title": "The Sport Schema",
+                
+            },
+            "Mjesto": {
+                "type": "string",
+                "title": "The Mjesto Schema",
+                
+            },
+            "Liga": {
+                "type": "string",
+                "title": "The Liga Schema",
+                
+            },
+            "RangNatjecanja": {
+                "type": "integer",
+                "title": "The RangNatjecanja Schema",
+                
+            },
+            "GodinaOsnutka": {
+                "type": "integer",
+                "title": "The GodinaOsnutka Schema",
+                
+            },
+            "Predsjednik": {
+                "type": "object",
+                "title": "The Predsjednik Schema",
+                "required": [
+                    "Ime",
+                    "Prezime"
+                ],
+                "properties": {
+                    "Ime": {
+                        "type": "string",
+                        "title": "The Ime Schema",
+                        
+                    },
+                    "Prezime": {
+                        "type": "string",
+                        "title": "The Prezime Schema",
+                        
+                    }
+                },
+            },
+            "Kontakt": {
+                "type": "object",
+                "title": "The Kontakt Schema",
+                "required": [
+                    "Email",
+                    "Telefon"
+                ],
+                "properties": {
+                    "Email": {
+                        "type": "string",
+                        "title": "The Email Schema",
+                        
+                    },
+                    "Telefon": {
+                        "type": "string",
+                        "title": "The Telefon Schema",
+                        
+                    }
+                }
+            }
         }
       }
     }
