@@ -15,7 +15,7 @@ services:
       - my_network
     command: --noauth
   app:
-    image: metdino/kluboviapp
+    image: metdino/kluboviapp:v5
     container_name: mojaAppSpremnik
     ports:
       - "5000:5000"

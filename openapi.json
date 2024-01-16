@@ -144,6 +144,27 @@
         }
       },
       "put": {
+        "requestBody": {
+          "description": "Ažuriraj podatke o klubu",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Klub"
+              }
+            }
+          },
+          "required": true
+        },
         "summary": "Ažurira podatke o klubu pomoću ID parameta u URL-u",
         "responses": {
           "200": {
@@ -496,6 +517,29 @@
                         "type": "string",
                         "title": "The Telefon Schema",
                         
+                    }
+                }
+            },
+            "Igrači": {
+                "type": "array",
+                "title": "The Igrači Schema",
+                "items": {
+                    "type": "object",
+                    "title": "A Schema",
+                    "required": [
+                        "Ime",
+                        "Prezime"
+                    ],
+                    "properties": {
+                        "Ime": {
+                            "type": "string",
+                            "title": "The Ime Schema",
+                        },
+                        "Prezime": {
+                            "type": "string",
+                            "title": "The Prezime Schema",
+                        }
+                    
                     }
                 }
             }
